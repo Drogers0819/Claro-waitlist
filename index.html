@@ -654,11 +654,14 @@ nav img{height:34px;}
     <p class="subtitle">Built for UK young professionals who want to build a better future — but don't have a plan for it yet.</p>
 
     <div class="waitlist-wrap">
-        <div class="beehiiv-embed-container">
-            <iframe src="https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7" 
-                    frameborder="0" scrolling="no"
-                    style="width:100%; height:80px; background:transparent; border:none; overflow:hidden;">
-            </iframe>
+        <form class="waitlist-form" action="https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7" method="POST" target="beehiiv-hidden" onsubmit="setTimeout(function(){document.getElementById('wf1').style.display='none';document.getElementById('fs1').style.display='block';document.getElementById('sp1').style.display='none';},500)" id="wf1">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Join Waitlist</button>
+        </form>
+        <div class="form-success" id="fs1">
+            <div class="check">&#10003;</div>
+            <p>You're on the list.</p>
+            <span>We'll let you know the moment Claro is ready.</span>
         </div>
     </div>
 
@@ -762,12 +765,16 @@ nav img{height:34px;}
     <h2>Build it <em>deliberately.</em></h2>
     <p>Free 14-day trial. No credit card. Launching August 2026.</p>
     <div class="waitlist-wrap">
-        <div class="beehiiv-embed-container">
-            <iframe src="https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7" 
-                    frameborder="0" scrolling="no"
-                    style="width:100%; height:80px; background:transparent; border:none; overflow:hidden;">
-            </iframe>
+        <form class="waitlist-form" action="https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7" method="POST" target="beehiiv-hidden" onsubmit="setTimeout(function(){document.getElementById('wf2').style.display='none';document.getElementById('fs2').style.display='block';},500)" id="wf2">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Get Early Access</button>
+        </form>
+        <div class="form-success" id="fs2">
+            <div class="check">&#10003;</div>
+            <p>You're on the list.</p>
+            <span>We'll be in touch soon.</span>
         </div>
+    </div>
     </div>
 </section>
 
