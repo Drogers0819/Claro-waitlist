@@ -778,7 +778,7 @@ nav img{height:34px;}
 
 </div>
 
-<iframe name="beehiiv-hidden" style="display:none;"></iframe>
+<iframe id="beehiiv-hidden" name="beehiiv-hidden" style="position:absolute;width:0;height:0;border:0;overflow:hidden;"></iframe>
 
 <script>
 // Generate stars/bokeh
@@ -814,26 +814,20 @@ function submitToBeehiiv(e, formId, successId, proofId) {
         return false;
     }
 
-    // Send to Beehiiv API
-    fetch('https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'email=' + encodeURIComponent(email),
-        mode: 'no-cors'
-    }).then(function() {
+    // Open Beehiiv form with email in hidden iframe
+    var iframe = document.getElementById('beehiiv-hidden');
+    iframe.src = 'https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7?email=' + encodeURIComponent(email);
+
+    // Show success after short delay to allow iframe to load
+    setTimeout(function() {
         form.style.display = 'none';
         document.getElementById(successId).style.display = 'block';
         if (proofId) document.getElementById(proofId).style.display = 'none';
-    }).catch(function() {
-        // Even if fetch fails silently with no-cors, show success
-        // The request was still sent
-        form.style.display = 'none';
-        document.getElementById(successId).style.display = 'block';
-        if (proofId) document.getElementById(proofId).style.display = 'none';
-    });
+    }, 1000);
 
     return false;
 }
+
 
 // Scroll reveal
 var obs = new IntersectionObserver(function(entries){
