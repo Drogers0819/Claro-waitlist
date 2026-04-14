@@ -253,6 +253,20 @@ transform:translateY(-1px);
 }
 .waitlist-form button:active{transform:translateY(0) scale(0.98);}
 
+.waitlist-btn{
+    display:inline-block;font-family:var(--sans);font-size:13px;font-weight:500;
+    letter-spacing:0.1em;text-transform:uppercase;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    color:var(--deep);border:none;
+    padding:18px 44px;border-radius:12px;
+    cursor:pointer;text-decoration:none;
+    transition:all 0.3s ease;
+}
+.waitlist-btn:hover{
+    box-shadow:0 8px 30px rgba(197,163,93,0.3);
+    transform:translateY(-2px);
+}
+
 .form-success{
 display:none;text-align:center;padding:20px;
 backdrop-filter:blur(16px);
@@ -639,16 +653,9 @@ nav img{height:34px;}
     <h1>Your financial future, <em>projected forward.</em></h1>
     <p class="subtitle">Built for UK young professionals who want to build a better future — but don't have a plan for it yet.</p>
 
-    <div class="waitlist-wrap">
-        <form class="waitlist-form" id="waitlistForm" onsubmit="return submitToBeehiiv(event, 'waitlistForm', 'formSuccess', 'socialProof')">
-            <input type="email" name="email" id="emailInput" placeholder="Enter your email" required>
-            <button type="submit">Join Waitlist</button>
-        </form>
-        <div class="form-success" id="formSuccess">
-            <div class="check">&#10003;</div>
-            <p>You're on the list.</p>
-            <span>We'll let you know the moment Claro is ready.</span>
-        </div>
+    <div class="waitlist-wrap" style="text-align:center;">
+        <a href="https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7" target="_blank"
+           class="waitlist-btn">Get Early Access →</a>
     </div>
 
     <div class="social-proof" id="socialProof">
@@ -750,16 +757,9 @@ nav img{height:34px;}
 <section class="bottom-cta">
     <h2>Build it <em>deliberately.</em></h2>
     <p>Free 14-day trial. No credit card. Launching August 2026.</p>
-    <div class="waitlist-wrap">
-        <form class="waitlist-form" id="waitlistForm2" onsubmit="return submitToBeehiiv(event, 'waitlistForm2', 'formSuccess2', null)">
-            <input type="email" name="email" id="emailInput2" placeholder="Enter your email" required>
-            <button type="submit">Get Early Access</button>
-        </form>
-        <div class="form-success" id="formSuccess2">
-            <div class="check">&#10003;</div>
-            <p>You're on the list.</p>
-            <span>We'll be in touch soon.</span>
-        </div>
+    <div class="waitlist-wrap" style="text-align:center;">
+        <a href="https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7" target="_blank"
+           class="waitlist-btn">Get Early Access →</a>
     </div>
 </section>
 
@@ -801,32 +801,6 @@ container.appendChild(star);
 }
 })();
 
-// Beehiiv form submission — stays on page, sends data in background
-function submitToBeehiiv(e, formId, successId, proofId) {
-    e.preventDefault();
-
-    var form = document.getElementById(formId);
-    var email = form.querySelector('input[type="email"]').value.trim();
-
-    if (!email || !email.includes('@') || !email.includes('.')) {
-        form.querySelector('input').style.borderColor = 'rgba(252,129,129,0.5)';
-        setTimeout(function(){ form.querySelector('input').style.borderColor = ''; }, 2000);
-        return false;
-    }
-
-    // Open Beehiiv form with email in hidden iframe
-    var iframe = document.getElementById('beehiiv-hidden');
-    iframe.src = 'https://subscribe-forms.beehiiv.com/2618cf66-b1ee-4ea4-90d4-9762e91b34e7?email=' + encodeURIComponent(email);
-
-    // Show success after short delay to allow iframe to load
-    setTimeout(function() {
-        form.style.display = 'none';
-        document.getElementById(successId).style.display = 'block';
-        if (proofId) document.getElementById(proofId).style.display = 'none';
-    }, 1000);
-
-    return false;
-}
 
 
 // Scroll reveal
