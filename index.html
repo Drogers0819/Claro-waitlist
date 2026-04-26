@@ -462,6 +462,29 @@ nav {
     white-space: nowrap;
 }
 
+/* ===== FOUNDER NOTE ===== */
+.founder-note {
+    padding: 0 24px var(--section-gap);
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+}
+.founder-note p {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    text-wrap: balance;
+}
+.founder-note cite {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-style: normal;
+}
+
 /* ===== QUOTE ===== */
 .quote-section {
     padding: 0 24px var(--section-gap);
@@ -644,7 +667,7 @@ footer {
         </div>
     </div>
 
-    <p class="social-proof-line" id="socialProof">First 500 get a <strong>free 14-day trial</strong> · No credit card.</p>
+    <p class="social-proof-line" id="socialProof">Early access members get a <strong>30-day free trial</strong> · No credit card.</p>
 
 </section>
 
@@ -730,6 +753,12 @@ footer {
     </div>
 </section>
 
+<!-- FOUNDER NOTE -->
+<section class="founder-note" aria-label="Why Claro was built">
+    <p>Built by a financial planner who spent five years watching people make life-changing money decisions without ever having a proper plan.</p>
+    <cite>— Victoria, founder</cite>
+</section>
+
 <!-- QUOTE -->
 <section class="quote-section">
     <blockquote>
@@ -742,7 +771,7 @@ footer {
 <section class="bottom-cta">
 
     <h2>Build it deliberately.</h2>
-    <p class="cta-sub">The first 500 get a free 14-day trial. No card required.</p>
+    <p class="cta-sub">Join early. Early access members get a <strong style="color: var(--text-secondary); font-weight: 500;">30-day free trial</strong> instead of 14. No card required.</p>
 
     <div class="form-wrap" style="animation: none;">
         <form id="waitlistForm2" onsubmit="return submitToBeehiiv(event, 'waitlistForm2', 'formSuccess2', null)">
